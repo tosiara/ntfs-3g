@@ -1065,6 +1065,7 @@ static int ntfs_fuse_readlink(const char *org_path, char *buf, size_t buf_size)
 		 */
 	if (ni->flags & FILE_ATTR_REPARSE_POINT) {
 #ifndef PLUGINS_DISABLED
+		/*
 		char *gotlink;
 		const plugin_operations_t *ops;
 		REPARSE_POINT *reparse;
@@ -1078,7 +1079,9 @@ static int ntfs_fuse_readlink(const char *org_path, char *buf, size_t buf_size)
 			strncpy(buf, ntfs_bad_reparse, buf_size);
 			res = 0;
 		}
+		*/
 #else /* PLUGINS_DISABLED */
+		/*
 		char *target;
 		int attr_size;
 
@@ -1093,8 +1096,11 @@ static int ntfs_fuse_readlink(const char *org_path, char *buf, size_t buf_size)
 				strcpy(buf,ntfs_bad_reparse);
 			else
 				res = -errno;
+		*/
 #endif /* PLUGINS_DISABLED */
+	/*
 		goto exit;
+	*/
 	}
 	/* Sanity checks. */
 	if (!(ni->flags & FILE_ATTR_SYSTEM)) {
